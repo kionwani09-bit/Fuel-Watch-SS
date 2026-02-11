@@ -1,0 +1,7 @@
+{
+  "name": "FuelWatch South Sudan",
+  "description": "A real-time fuel tracking and transparency platform for South Sudan, providing petrol and diesel prices, availability status, and crowd-sourced reporting for Juba, Wau, Malakal, and beyond.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
