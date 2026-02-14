@@ -1,7 +1,18 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// Initialize with API key, but handle gracefully if not available
+const getApiKey = (): string => {
+  // Check multiple sources for API key
+  return (
+    process.env.GEMINI_API_KEY ||
+    process.env.API_KEY ||
+    ''
+  );
+};
+
+const apiKey = getApiKey();
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 const CACHE_PREFIX = 'fuelwatch_ai_cache_';
 const CACHE_TTL = 1000 * 60 * 30; // 30 minutes for persistent session cache
